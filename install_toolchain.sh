@@ -25,8 +25,10 @@ function downloadAvr {
     mkdir $HOME/Library/avr-atpack
     unzip $TMPDIR/avrkurs/atpack.zip -d $HOME/Library/avr-atpack/
     mv avr8-gnu-toolchain-darwin_x86_64/ $HOME/Library/avr-toolchain
-    echo "export PATH="$HOME/Library/avr-toolchain/bin:\$PATH"" >> $HOME/.bashrc
-	source $HOME/.bashrc
+    echo "export PATH="$HOME/Library/avr-toolchain/bin:\$PATH"" >> $HOME/.bash_profile
+    echo "export PATH="$HOME/Library/avr-toolchain/bin:\$PATH"" >> $HOME/.zprofile
+	source $HOME/.bash_profile
+	source $HOME/.zprofile
 	cp $HOME/Library/avr-atpack/templates/main.c $CURRENTDIR/main.c
     rm -R $TMPDIR/avrkurs
     echo "Done! Please edit main.c and use make to compile and flash"
