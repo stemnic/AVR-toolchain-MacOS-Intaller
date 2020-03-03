@@ -1,8 +1,9 @@
 # Title: AVR toolchain installer macOS
 # Author: Ole Sivert Aarhaug aka OS aka root 2019
 # The toolchainurl might not last. Latest version can be found under https://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers
-TOOLCHAINURL="http://ww1.microchip.com/downloads/en/DeviceDoc/avr8-gnu-toolchain-osx-3.6.2.503-darwin.any.x86_64.tar.gz"
-ATPACK="http://packs.download.atmel.com/Atmel.ATmega_DFP.1.3.300.atpack"
+#TOOLCHAINURL="http://ww1.microchip.com/downloads/en/DeviceDoc/avr8-gnu-toolchain-osx-3.6.2.503-darwin.any.x86_64.tar.gz" # Stupid Microchip.com now requires login......
+TOOLCHAINURL="https://omegav.no/files/avrkurs/MacOS/avr8-gnu-toolchain-osx-3.6.2.503-darwin.any.x86_64.tar.gz"
+ATPACK="http://packs.download.atmel.com/Atmel.ATmega_DFP.1.4.346.atpack"
 CURRENTDIR=$PWD
 function downloadAvr {
     if [ -d "$TMPDIR/avrkurs" ]; then
@@ -24,9 +25,11 @@ function downloadAvr {
     mkdir $HOME/Library/avr-atpack
     unzip $TMPDIR/avrkurs/atpack.zip -d $HOME/Library/avr-atpack/
     mv avr8-gnu-toolchain-darwin_x86_64/ $HOME/Library/avr-toolchain
-    echo "export PATH="$HOME/Library/avr-toolchain/bin:\$PATH"" >> $HOME/.bash_profile
+    echo "export PATH="$HOME/Library/avr-toolchain/bin:\$PATH"" >> $HOME/.bashrc
+	source $HOME/.bashrc
+	cp $HOME/Library/avr-atpack/templates/main.c $CURRENTDIR/main.c
     rm -R $TMPDIR/avrkurs
-    echo "Done!"
+    echo "Done! Please edit main.c and use make to compile and flash"
 }
 
 echo "  ___  _   _______       _   __                            "
