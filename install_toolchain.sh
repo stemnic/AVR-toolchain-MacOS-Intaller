@@ -29,7 +29,7 @@ function downloadAvr {
     echo "export PATH="$HOME/Library/avr-toolchain/bin:\$PATH"" >> $HOME/.zprofile
 	source $HOME/.bash_profile
 	source $HOME/.zprofile
-	cp $HOME/Library/avr-atpack/templates/main.c $CURRENTDIR/main.c
+	cp -n $HOME/Library/avr-atpack/templates/main.c $CURRENTDIR/main.c
     rm -R $TMPDIR/avrkurs
     echo "Done! Please edit main.c and use make to compile and flash"
 }
