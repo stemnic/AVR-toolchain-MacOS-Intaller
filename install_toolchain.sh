@@ -2,8 +2,8 @@
 # Author: Ole Sivert Aarhaug aka OS aka root 2019
 # The toolchainurl might not last. Latest version can be found under https://www.microchip.com/mplab/avr-support/avr-and-arm-toolchains-c-compilers
 #TOOLCHAINURL="http://ww1.microchip.com/downloads/en/DeviceDoc/avr8-gnu-toolchain-osx-3.6.2.503-darwin.any.x86_64.tar.gz" # Stupid Microchip.com now requires login......
-TOOLCHAINURL="https://omegav.no/files/avrkurs/MacOS/avr8-gnu-toolchain-osx-3.6.2.503-darwin.any.x86_64.tar.gz"
-ATPACK="http://packs.download.atmel.com/Atmel.ATmega_DFP.1.4.346.atpack"
+TOOLCHAINURL="https://omegav.no/files/avrkurs/MacOS/avr8-gnu-toolchain-osx-3.6.2.514-darwin.any.x86_64.tar.gz"
+ATPACK="http://packs.download.atmel.com/Atmel.ATmega_DFP.2.0.401.atpack"
 CURRENTDIR=$PWD
 function downloadAvr {
     if [ -d "$TMPDIR/avrkurs" ]; then
