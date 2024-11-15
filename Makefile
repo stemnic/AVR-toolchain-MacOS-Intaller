@@ -19,7 +19,7 @@
 # Dependency directories and binaries
 CHIP_DIR = /Volumes/CURIOSITY/
 
-TOOL_CHAIN_URL = "https://omegav.no/files/avrkurs/MacOS/install_toolchain.sh"
+TOOLCHAIN_URL = "https://omegav.no/files/avrkurs/MacOS/install_toolchain.sh"
 
 DFP_DIR = $(HOME)/Library/avr-atpack/
 AVR-GCC = avr-gcc
@@ -38,7 +38,7 @@ TARGET = out
 #Compiler and Linker flags
 MCU = atmega4809
 CFLAGS = -B $(DFP_DIR)gcc/dev/atmega4809 -I $(DFP_DIR)include -mmcu=$(MCU) -Os 
-LDFLAGS = -B $(DFP_DIR)gcc/dev/atmega4809 -I $(DFP_DIR)include -mmcu=$(MCU) #-Wl,-Map=$(TARGET).map
+LDFLAGS = -B $(DFP_DIR)gcc/dev/atmega4809 -I $(DFP_DIR)include -mmcu=$(MCU) -Wl,-Map=$(TARGET).map
 
 # ####
 # Make rules
@@ -53,7 +53,7 @@ clean:
 	rm -f $(OBJ) $(TARGET).{elf,hex}
 
 install:
-	curl $(TOOL_CHAIN_URL) > install_toolchain.sh
+	curl $(TOOLCHAIN_URL) > install_toolchain.sh
 	chmod +x install_toolchain.sh
 	./install_toolchain.sh
 	rm install_toolchain.sh
